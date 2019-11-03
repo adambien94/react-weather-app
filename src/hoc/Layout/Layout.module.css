@@ -1,4 +1,12 @@
-.Content {
-  /* padding-top: 8vh; */
-  /* filter: blur(1px); */
+.Content {}
+
+.wrapper {
+  height: 100%;
+  filter: blur(0px);
+  transition: filter 0.1s ease-out;
+}
+
+.blur {
+  transition: filter 0.1s ease-out;
+  filter: blur(1px) brightness(95%);
 }

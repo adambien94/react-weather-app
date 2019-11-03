@@ -9,6 +9,7 @@ const CityInput = props => {
       display: "block",
       fontSize: "19px",
       padding: "4px 0",
+      width: "250px",
       margin: "0 auto",
       borderRadius: "7px",
       textAlign: "center",
@@ -61,7 +62,7 @@ const CityInput = props => {
         onChange={event => updateCity(event)}
       />
       <button style={styles.submit} onClick={onClick}>
-        🔍
+        ⚲
       </button>
     </div>
   );

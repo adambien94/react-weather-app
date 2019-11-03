@@ -51,7 +51,6 @@ class Forecast extends Component {
           country: country,
           description: description
         });
-        console.log(this.state.currentData);
       })
       .catch(error => {
         console.log(error);
