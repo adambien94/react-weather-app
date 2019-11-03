@@ -32,8 +32,10 @@ const NextDay = props => {
 
   return (
     <div style={styles.nextDay}>
-      <div style={styles.day}>Thru.</div>
-      <img src="../../../assets/weather-icon.png" style={styles.icon} />
+      <div style={styles.day}>{props.day}</div>
+      {/* <img src="../../../assets/weather-icon.png" style={styles.icon} /> */}
+
+      <h1 style={{ color: "rgba(0,0,0,0.5)" }}>🌤</h1>
       {/* <div style={(styles.temp, styles.nightTemp)}>
         {props.data.temp.day.toFixed(0)}°
       </div> */}

@@ -1,8 +1,8 @@
 import React from "react";
-import classes from "./WeatherIcon.css";
+import "./WeatherIcon.css";
 
 const WeatherIcon = () => {
-  return <div className="WeatherIcon"></div>;
+  return <div className="WeatherIcon" alt="ikona"></div>;
 };
 
 export default WeatherIcon;

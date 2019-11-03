@@ -1,0 +1,13 @@
+.Hamburger {
+  color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  /* background: red; */
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 25px;
+  margin: 7px 11px;
+  cursor: pointer;
+  transform: scaleX(1.3);
+}

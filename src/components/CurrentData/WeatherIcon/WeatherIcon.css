@@ -3,4 +3,6 @@
   height: 65px;
   background: url("../../../assets/weather-icon.png");
   background-size: cover;
+  margin: 0 auto;
+  transform: translateX(-90px);
 }

@@ -5,6 +5,7 @@
   height: 100vh;
   overflow: hidden;
   position: relative;
+
 }
 
 .App:before {
@@ -14,10 +15,10 @@
   position: absolute;
   left: 0;
   top: 0;
-  /* background: url('./assets/background.png'); */
-  background: #87B1BC;
+  background: url('./assets/background.png');
+  /* background: #87B1BC; */
   background-size: cover;
-  transform: scale(1.05);
-  /* filter: blur(4px); */
+  transform: scale(1.1);
+  filter: blur(15px) brightness(80%);
   z-index: -2;
 }

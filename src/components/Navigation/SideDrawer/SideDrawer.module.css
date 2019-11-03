@@ -1,0 +1,21 @@
+.SideDrawer {
+  width: 60vw;
+  max-width: 300px;
+  height: 100vh;
+  background: #fff;
+  position: absolute;
+  z-index: 10;
+  transform: translateX(calc(-100% - 30px));
+  transition: transform .2s ease-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 20px;
+  box-shadow: 4px 0 4px rgba(0, 0, 0, 0.1);
+  font-size: 43px;
+}
+
+.SideDrawerOpened {
+  transform: translateX(0);
+}

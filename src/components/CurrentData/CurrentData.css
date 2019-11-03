@@ -1,7 +1,7 @@
 .CurrentData {
   width: 100%;
   margin: 30px auto 30px auto;
-  padding: 40px;
+  padding: 20px 40px;
   box-sizing: border-box;
 }
 
@@ -47,7 +47,7 @@
   display: inline-block;
   padding-top: 7px;
   bottom: 0;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 100;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
   font-size: 19px;
 }

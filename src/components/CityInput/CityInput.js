@@ -1,6 +1,5 @@
 import React from "react";
-import classes from "./CityInput.css";
-import { tsPropertySignature } from "@babel/types";
+import classes from "./CityInput.module.css";
 
 const CityInput = props => {
   const styles = {
@@ -19,9 +18,6 @@ const CityInput = props => {
       textTransform: "capitalize",
       fontFamily: "Nunito"
     },
-    ":placeholder": {
-      color: "rgba(255, 255, 255, 0.6)"
-    },
     wrapper: {
       position: "relative"
     },
@@ -32,11 +28,25 @@ const CityInput = props => {
     }
   };
 
-  let city = "";
+  let cityInput = null;
+
+  let city = props.city;
 
   const updateCity = event => {
     city = event.target.value;
   };
+
+  const onClick = () => {
+    props.submit(city);
+    cityInput.value = "";
+    cityInput.placeholder = city;
+  };
+
+  // cityInput.addEventListener("keydown", e => {
+  //   if (e.keyCode === 13) {
+  //     console.log("hehe");
+  //   }
+  // });
 
   return (
     <div style={styles.wrapper}>
@@ -44,11 +54,14 @@ const CityInput = props => {
         type="text"
         placeholder={props.city}
         style={styles.cityInput}
-        className="CityInput"
+        className={classes.CityInput}
+        ref={input => {
+          cityInput = input;
+        }}
         onChange={event => updateCity(event)}
       />
-      <button style={styles.submit} onClick={() => props.submit(city)}>
-        sub
+      <button style={styles.submit} onClick={onClick}>
+        🔍
       </button>
     </div>
   );

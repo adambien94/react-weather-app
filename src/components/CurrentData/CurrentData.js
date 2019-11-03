@@ -1,14 +1,17 @@
 import React from "react";
-import classes from "./CurrentData.css";
+import "./CurrentData.css";
 import WeatherIcon from "./WeatherIcon/WeatherIcon";
-import { tsPropertySignature } from "@babel/types";
 
 const CurrentData = props => {
   return (
     <div className="CurrentData">
       <WeatherIcon />
       <div className="MainInfo">
-        <span className="MainTemp">12</span>
+        {props.temp === null ? (
+          <span className="MainTemp">...</span>
+        ) : (
+          <span className="MainTemp">{props.temp.toFixed(0)}</span>
+        )}
         <span className="Description">{props.description}</span>
       </div>
     </div>
