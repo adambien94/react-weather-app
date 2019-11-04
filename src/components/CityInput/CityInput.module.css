@@ -2,7 +2,7 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-button {
+.SearchBtn {
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.7);
@@ -14,4 +14,5 @@ button {
   left: 50%;
   transform: translate(83px, 3px) rotate(-45deg);
   outline: none;
+  cursor: pointer;
 }

@@ -11,7 +11,7 @@ const NextDay = props => {
       height: "110px"
     },
     day: {
-      fontSize: "11px",
+      fontSize: "12px",
       fontWeight: "600"
     },
     icon: {
@@ -22,11 +22,7 @@ const NextDay = props => {
       fontWeight: "600"
     },
     dayTemp: {
-      fontSize: "17px"
-      // color: "#87B1BC"
-    },
-    nightTemp: {
-      fontSize: "11px"
+      fontSize: "21px"
     }
   };
 
@@ -36,15 +32,10 @@ const NextDay = props => {
       {/* <img src="../../../assets/weather-icon.png" style={styles.icon} /> */}
 
       <h1 style={{ color: "rgba(0,0,0,0.5)" }}>🌤</h1>
-      {/* <div style={(styles.temp, styles.nightTemp)}>
-        {props.data.temp.day.toFixed(0)}°
-      </div> */}
+
       <div style={(styles.temp, styles.dayTemp)}>
         {props.data.temp.eve.toFixed(0)}°
       </div>
-      {/* <div style={(styles.temp, styles.nightTemp)}>
-        {props.data.temp.night.toFixed(0)}°
-      </div> */}
     </div>
   );
 };

@@ -16,7 +16,6 @@ class Layout extends Component {
   };
 
   onClick = () => {
-    console.log("hehe");
     this.state.sideDrawerOpened && this.sideDrawerToggleHandler();
   };
 

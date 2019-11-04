@@ -5,34 +5,32 @@ import "./Forecast.css";
 import NextDays from "../../components/NextDays/NextDays";
 import CityInput from "../../components/CityInput/CityInput";
 import axios from "../../axios";
+import Dropdown from "../../components/UI/Dropdown/Dropdown";
 
 class Forecast extends Component {
   state = {
     appid: "&appid=81631cc1843c3ced0966f73c8b9fcdf7",
-    units: "metric",
+    unit: "metric",
     city: "hamburg",
     description: "little rain",
     country: "PL",
-    daysNum: 5,
+    daysNum: 4,
     currentData: null,
     currentTemp: null,
     forecastData: null,
-    posts: null
+    posts: null,
+    units: ["metric", "imperial"],
+    daysNums: [4, 5, 6]
   };
 
   componentDidMount = () => {
-    this.testFunHandler(this.state.city);
+    this.sendRequestHandler(this.state.city);
   };
 
-  testFunHandler = city => {
-    let url =
-      "daily?q=" +
-      city +
-      this.state.appid +
-      "&units=" +
-      this.state.units +
-      "&cnt=" +
-      this.state.daysNum;
+  sendRequestHandler = city => {
+    let url = `daily?q=${city + this.state.appid}&units=${
+      this.state.unit
+    }&cnt=${this.state.daysNum}`;
 
     axios
       .get(url)
@@ -57,11 +55,28 @@ class Forecast extends Component {
       });
   };
 
+  // componentDidUpdate(prevProps) {
+  //   this.state.city !== prevProps.city &&
+  //     this.sendRequestHandler(this.state.city);
+  // }
+
+  setDaysNumHandler = option => {
+    this.setState({ daysNum: option }, () => {
+      this.sendRequestHandler(this.state.city);
+    });
+  };
+
+  setUnitHandler = option => {
+    this.setState({ unit: option }, () => {
+      this.sendRequestHandler(this.state.city);
+    });
+  };
+
   render() {
     return (
       <Aux>
         <CityInput
-          submit={city => this.testFunHandler(city)}
+          submit={city => this.sendRequestHandler(city)}
           city={this.state.city}
         />
         <CurrentData
@@ -76,6 +91,22 @@ class Forecast extends Component {
             </div>
           </div>
           <NextDays data={this.state.forecastData} />
+          <div className="OptionWrapper">
+            <Dropdown
+              label="forecast"
+              value={this.state.daysNum}
+              valueDescription="days"
+              options={this.state.daysNums}
+              clicked={option => this.setDaysNumHandler(option)}
+            />
+            <Dropdown
+              label="unit"
+              value={this.state.unit}
+              valueDescription={null}
+              options={this.state.units}
+              clicked={option => this.setUnitHandler(option)}
+            />
+          </div>
         </div>
       </Aux>
     );

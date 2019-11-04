@@ -61,7 +61,11 @@ const CityInput = props => {
         }}
         onChange={event => updateCity(event)}
       />
-      <button style={styles.submit} onClick={onClick}>
+      <button
+        style={styles.submit}
+        onClick={onClick}
+        className={classes.SearchBtn}
+      >
         ⚲
       </button>
     </div>
