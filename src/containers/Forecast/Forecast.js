@@ -14,13 +14,13 @@ class Forecast extends Component {
     city: "hamburg",
     description: "little rain",
     country: "PL",
-    daysNum: 4,
+    daysNum: 3,
     currentData: null,
     currentTemp: null,
     forecastData: null,
     posts: null,
     units: ["metric", "imperial"],
-    daysNums: [4, 5, 6]
+    daysNums: [3, 4, 5]
   };
 
   componentDidMount = () => {
@@ -30,7 +30,7 @@ class Forecast extends Component {
   sendRequestHandler = city => {
     let url = `daily?q=${city + this.state.appid}&units=${
       this.state.unit
-    }&cnt=${this.state.daysNum}`;
+    }&cnt=${this.state.daysNum + 1}`;
 
     axios
       .get(url)
@@ -100,9 +100,9 @@ class Forecast extends Component {
               clicked={option => this.setDaysNumHandler(option)}
             />
             <Dropdown
-              label="unit"
+              label="units"
               value={this.state.unit}
-              valueDescription={null}
+              valueDescription=""
               options={this.state.units}
               clicked={option => this.setUnitHandler(option)}
             />

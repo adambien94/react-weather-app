@@ -1,7 +1,6 @@
 .App {
   background: transparent;
   margin: 0;
-  /* padding: 20px; */
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -15,7 +14,6 @@
   left: 0;
   top: 0;
   background: url('./assets/background.png');
-  /* background: #87B1BC; */
   background-size: cover;
   transform: scale(1.1);
   filter: blur(15px) brightness(80%);

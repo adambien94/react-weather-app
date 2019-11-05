@@ -2,11 +2,11 @@
 
 .wrapper {
   height: 100%;
-  filter: blur(0px);
+  filter: brightness(100%);
   transition: filter 0.1s ease-out;
 }
 
 .blur {
-  transition: filter 0.1s ease-out;
-  filter: blur(1px) brightness(95%);
+  transition: all .2s ease-out;
+  filter: brightness(86.5%);
 }

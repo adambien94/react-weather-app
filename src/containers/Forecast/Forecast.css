@@ -21,6 +21,9 @@
   position: absolute;
   width: 100%;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
+  max-width: 1300px;
+  width: 70%;
 }

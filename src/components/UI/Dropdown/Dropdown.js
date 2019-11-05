@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Dropdown.module.css";
 
 const Dropdown = props => {
-  let show = true;
+  const [show, setShow] = React.useState(false);
+
   const toggleList = () => {
-    show = !show;
+    setShow(currentShow => (currentShow = !show));
+  };
+
+  const itemClick = option => {
+    props.clicked(option);
+    // setTimeout(() => {
+    //   toggleList();
+    // }, 400);
   };
 
   return (
@@ -19,7 +27,7 @@ const Dropdown = props => {
             <li
               className={attachedClasses.join(" ")}
               key={`option${index}`}
-              onClick={() => props.clicked(option)}
+              onClick={() => itemClick(option)}
             >
               {option}
             </li>

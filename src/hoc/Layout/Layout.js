@@ -7,7 +7,8 @@ import Backdrop from "../../components/UI/Backdrop/Backdrop";
 
 class Layout extends Component {
   state = {
-    sideDrawerOpened: false
+    sideDrawerOpened: false,
+    optionsOpened: false
   };
 
   sideDrawerToggleHandler = () => {
@@ -36,6 +37,8 @@ class Layout extends Component {
   }
 
   // PYTANKO. czemu na update dodaje blura dopiero za drugim razem? (jeśli nie dodam do componentDidUpdate)
+
+  //  jak przekazac propsa do props.children..?
 
   render() {
     return (
