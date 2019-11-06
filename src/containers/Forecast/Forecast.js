@@ -6,6 +6,7 @@ import NextDays from "../../components/NextDays/NextDays";
 import CityInput from "../../components/CityInput/CityInput";
 import axios from "../../axios";
 import Dropdown from "../../components/UI/Dropdown/Dropdown";
+import Modal from "../../components/UI/Modal/Modal";
 
 class Forecast extends Component {
   state = {
@@ -20,7 +21,8 @@ class Forecast extends Component {
     forecastData: null,
     posts: null,
     units: ["metric", "imperial"],
-    daysNums: [3, 4, 5]
+    daysNums: [3, 4, 5, 12],
+    modalShow: false
   };
 
   componentDidMount = () => {
@@ -72,6 +74,10 @@ class Forecast extends Component {
     });
   };
 
+  modalToggleHandler = () => {
+    this.setState({ modalShow: !this.state.modalShow });
+  };
+
   render() {
     return (
       <Aux>
@@ -90,6 +96,9 @@ class Forecast extends Component {
               {this.state.city}, {this.state.country}
             </div>
           </div>
+          <button className="chartBtn" onClick={this.modalToggleHandler}>
+            forecast chart
+          </button>
           <NextDays data={this.state.forecastData} />
           <div className="OptionWrapper">
             <Dropdown
@@ -108,6 +117,10 @@ class Forecast extends Component {
             />
           </div>
         </div>
+        <Modal show={this.state.modalShow}>
+          <h1 style={{ fontSize: "93px" }}>📉</h1>
+          <h1>hehehe :D</h1>
+        </Modal>
       </Aux>
     );
   }

@@ -7,8 +7,9 @@ const NextDay = props => {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "space-around",
-      color: "rgba(0, 0, 0, 0.4)",
-      height: "110px"
+      color: "rgba(0, 0, 0, 0.5)",
+      height: "110px",
+      minWidth: "57px"
     },
     day: {
       fontSize: "12px",

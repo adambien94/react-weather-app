@@ -8,7 +8,7 @@ const NextDays = props => {
     nextDays: {
       display: "flex",
       justifyContent: "space-between",
-      margin: "41px 0",
+      margin: "37px 0",
       listStyle: "none",
       padding: "0"
     },
