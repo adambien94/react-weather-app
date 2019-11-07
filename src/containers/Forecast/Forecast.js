@@ -7,6 +7,7 @@ import CityInput from "../../components/CityInput/CityInput";
 import axios from "../../axios";
 import Dropdown from "../../components/UI/Dropdown/Dropdown";
 import Modal from "../../components/UI/Modal/Modal";
+import Backdrop from "../../components/UI/Backdrop/Backdrop";
 
 class Forecast extends Component {
   state = {
@@ -57,11 +58,6 @@ class Forecast extends Component {
       });
   };
 
-  // componentDidUpdate(prevProps) {
-  //   this.state.city !== prevProps.city &&
-  //     this.sendRequestHandler(this.state.city);
-  // }
-
   setDaysNumHandler = option => {
     this.setState({ daysNum: option }, () => {
       this.sendRequestHandler(this.state.city);
@@ -81,6 +77,10 @@ class Forecast extends Component {
   render() {
     return (
       <Aux>
+        <Backdrop
+          show={this.state.modalShow}
+          clicked={this.modalToggleHandler}
+        />
         <CityInput
           submit={city => this.sendRequestHandler(city)}
           city={this.state.city}
@@ -90,15 +90,20 @@ class Forecast extends Component {
           temp={this.state.currentTemp}
         />
         <div className="DataWrapper">
+          <nav className="forecastNav">
+            <button className="forecastBtn" onClick={this.modalToggleHandler}>
+              city on map
+            </button>
+            <button className="forecastBtn" onClick={this.modalToggleHandler}>
+              forecast chart
+            </button>
+          </nav>
           <div className="DataInfo">
             <div>sunday, sep 25</div>
             <div>
               {this.state.city}, {this.state.country}
             </div>
           </div>
-          <button className="chartBtn" onClick={this.modalToggleHandler}>
-            forecast chart
-          </button>
           <NextDays data={this.state.forecastData} />
           <div className="OptionWrapper">
             <Dropdown
@@ -117,9 +122,13 @@ class Forecast extends Component {
             />
           </div>
         </div>
-        <Modal show={this.state.modalShow}>
-          <h1 style={{ fontSize: "93px" }}>📉</h1>
-          <h1>hehehe :D</h1>
+        <Modal show={this.state.modalShow} title="Forecast chart">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
+            minima possimus molestiae nobis, blanditiis eius facilis accusantium
+            incidunt laborum doloremque doloribus. Ipsa ullam unde dolorum, rem
+            officia tenetur aperiam harum.
+          </p>
         </Modal>
       </Aux>
     );

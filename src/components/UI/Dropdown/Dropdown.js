@@ -10,9 +10,6 @@ const Dropdown = props => {
 
   const itemClick = option => {
     props.clicked(option);
-    // setTimeout(() => {
-    //   toggleList();
-    // }, 400);
   };
 
   return (
