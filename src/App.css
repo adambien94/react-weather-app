@@ -13,9 +13,10 @@
   position: absolute;
   left: 0;
   top: 0;
-  background: url('./assets/background.png');
+  /* background: url('./assets/background.png');
   background-size: cover;
   transform: scale(1.1);
-  filter: blur(15px) brightness(80%);
+  filter: blur(15px) brightness(80%); */
+  background: linear-gradient(-0.07turn, #4ab6f9, #1984C6);
   z-index: -2;
 }

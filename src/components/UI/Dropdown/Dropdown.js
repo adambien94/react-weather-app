@@ -32,7 +32,6 @@ const Dropdown = props => {
         })}
       </ul>
       <div className={styles.SelectBtn} onClick={toggleList}>
-        <span className={styles.label}>{props.label}</span>
         <span className={styles.value}>
           {props.value + " " + props.valueDescription}
         </span>

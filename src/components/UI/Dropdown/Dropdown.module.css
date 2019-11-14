@@ -5,24 +5,25 @@
 
 .list {
   position: absolute;
-  top: -2px;
+  top: -9px;
   left: 50%;
-  background: #f2f5f7;
+  background: #F7F7F7;
   transform: translate(-50%, -100%);
   list-style: none;
   max-width: 200px;
-  width: 95%;
+  width: 117px;
   box-sizing: border-box;
   padding: 7px 5px;
-  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  z-index: 2;
 }
 
 .item {
   text-align: right;
   font-size: 15px;
   padding: 5px 17px;
-  color: rgba(0, 0, 0, 0.45);
+  color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
   position: relative;
 }
@@ -34,7 +35,7 @@
   width: 13px;
   height: 13px;
   box-sizing: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 50%;
   left: 7px;
   top: 50%;
@@ -63,7 +64,6 @@
   left: 7px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 0;
 }
 
 .SelectBtn {
@@ -71,32 +71,29 @@
   width: 100%;
   box-sizing: border-box;
   cursor: pointer;
-  padding: 11px;
+  padding: 5px;
+  background: #F7F7F7;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  width: 117px;
+  margin: 0 auto 17px auto;
+  position: relative;
 }
 
 .SelectBtn:before {
   content: "❯";
   position: absolute;
-  color: rgba(0, 0, 0, 0.4);
-  font-size: 10px;
+  color: rgba(0, 0, 0, 0.17);
+  font-size: 13px;
   left: 50%;
   top: 50%;
   transform: translate(-43px, -50%) rotate(-90deg);
 }
 
-.label,
 .value {
   display: block;
   padding: 1px;
-}
-
-.label {
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.value {
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.4);
-  color: #4ab6f9;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
 }

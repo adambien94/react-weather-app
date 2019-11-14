@@ -1,0 +1,31 @@
+.modalCard {
+  width: 87%;
+  max-width: 500px;
+  height: auto;
+  background: #fff;
+  border-radius: 7px;
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.17);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modalTitle {
+  text-align: left;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  line-height: 17px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  margin-bottom: 21px;
+  text-transform: capitalize;
+}
+
+.modalContent {
+  text-align: left
+}
