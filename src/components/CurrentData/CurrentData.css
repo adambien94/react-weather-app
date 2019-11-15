@@ -22,18 +22,7 @@
   line-height: 70px;
 }
 
-.MainTemp:before {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 39px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.5);
-  top: 100%;
-  left: 50%;
-  border-radius: 50px;
-  transform: translateX(-50%);
-}
+
 
 .MainTemp:after {
   content: '°';
@@ -50,4 +39,18 @@
   color: rgba(255, 255, 255, 0.5);
   font-weight: 300;
   font-size: 19px;
+  position: relative;
+}
+
+.Description:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 39px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+  top: 0;
+  left: 50%;
+  border-radius: 50px;
+  transform: translateX(-50%);
 }

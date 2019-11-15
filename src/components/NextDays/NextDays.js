@@ -1,12 +1,14 @@
 import React from "react";
 import NextDay from "./NextDay/NextDay";
 
-const NextDays = props => {
+const NextDays = ({ data, days }) => {
   const styles = {
     nextDays: {
       display: "flex",
       justifyContent: "space-between",
-      listStyle: "none"
+      listStyle: "none",
+      width: "100%",
+      overflowX: "scroll"
     },
     day: {
       borderRight: "1px solid rgba(0,0,0,0.04)",
@@ -15,11 +17,11 @@ const NextDays = props => {
   };
 
   let test =
-    props.data &&
-    props.data.map((dayData, index) => {
+    data &&
+    data.map((dayData, index) => {
       return (
         <li style={styles.day} key={`day${index}`}>
-          <NextDay data={dayData} day={props.days[index]} />
+          <NextDay data={dayData} day={days[index]} />
         </li>
       );
     });

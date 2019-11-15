@@ -17,16 +17,17 @@ class Forecast extends Component {
     city: "hamburg",
     description: "little rain",
     country: "PL",
-    daysNum: 4,
+    daysNum: 5,
     currentWeather: null,
     currentTemp: null,
     forecastData: null,
     posts: null,
     units: ["metric", "imperial"],
-    daysNums: [3, 4, 5, 12],
+    daysNums: [3, 4, 5, 6, 7],
     showModal: false,
     modalOption: null,
-    weekDays: ["Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat.", "Sun."]
+    weekDays: ["Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat.", "Sun."],
+    loading: false
   };
 
   componentDidMount = () => {
@@ -57,6 +58,7 @@ class Forecast extends Component {
   getForecastHandler = city => {
     const url = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city +
       this.state.appid}&units=${this.state.unit}&cnt=${this.state.daysNum + 1}`;
+    this.setState({ loading: true });
 
     axios
       .get(url)
@@ -66,14 +68,17 @@ class Forecast extends Component {
         const description = currentWeather.weather[0].description;
         const currentTemp = currentWeather.temp.eve;
 
-        this.setState({
-          city: city,
-          currentWeather: currentWeather,
-          currentTemp: currentTemp,
-          forecastData: forecastData,
-          country: country,
-          description: description
-        });
+        setTimeout(() => {
+          this.setState({
+            city: city,
+            currentWeather: currentWeather,
+            currentTemp: currentTemp,
+            forecastData: forecastData,
+            country: country,
+            description: description,
+            loading: false
+          });
+        }, 1000);
       })
       .catch(error => {
         console.log(error);
@@ -116,7 +121,16 @@ class Forecast extends Component {
         />
       );
     } else if (modalOption === "city on map") {
-      modalContent = <h1>🌏</h1>;
+      modalContent = (
+        <div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Perspiciatis iusto repellat tenetur reiciendis, animi unde ratione
+            sequi delectus rerum est voluptates, neque hic consequuntur?
+          </p>
+          <h1>🌏</h1>
+        </div>
+      );
     }
 
     return (
@@ -132,6 +146,7 @@ class Forecast extends Component {
         <CurrentWeather
           description={this.state.description}
           temp={this.state.currentTemp}
+          loading={this.state.loading}
         />
         <div className="DataWrapper">
           <nav className="forecastNav">
