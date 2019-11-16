@@ -4,20 +4,29 @@ import WeatherIcon from "./WeatherIcon/WeatherIcon";
 import Loader from "../Loader/Loader";
 
 const CurrentData = props => {
-  let test;
+  let mainTemp;
 
-  if (props.temp === null || props.loading) {
-    test = <Loader />;
+  let currentTemp;
+  let description = "";
+
+  if (props.data) {
+    let [currentWeather, ...rest] = props.data;
+    currentTemp = currentWeather.temp.eve;
+    description = currentWeather.weather[0].description;
+  }
+
+  if (!props.data || props.loading) {
+    mainTemp = <Loader />;
   } else {
-    test = <span className="MainTemp">{props.temp.toFixed(0)}</span>;
+    mainTemp = <span className="MainTemp">{currentTemp.toFixed(0)}</span>;
   }
 
   return (
     <div className="CurrentData">
       <WeatherIcon />
       <div className="MainInfo">
-        {test}
-        <span className="Description">{props.description}</span>
+        {mainTemp}
+        <span className="Description">{description}</span>
       </div>
     </div>
   );

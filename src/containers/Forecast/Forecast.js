@@ -14,12 +14,9 @@ class Forecast extends Component {
   state = {
     appid: "&appid=81631cc1843c3ced0966f73c8b9fcdf7",
     unit: "metric",
-    city: "hamburg",
-    description: "little rain",
+    city: "",
     country: "PL",
     daysNum: 5,
-    currentWeather: null,
-    currentTemp: null,
     forecastData: null,
     posts: null,
     units: ["metric", "imperial"],
@@ -31,51 +28,49 @@ class Forecast extends Component {
   };
 
   componentDidMount = () => {
-    this.getForecastHandler(this.state.city);
     this.getLocation();
   };
 
   getLocation = () => {
     if (navigator.geolocation) {
+      this.setState({ loading: true });
       navigator.geolocation.getCurrentPosition(position => {
-        let url =
-          "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-          position.coords.latitude +
-          "," +
-          position.coords.longitude +
-          "&key=AIzaSyBxy4VqKf5amWvzDwGRAneCo6OtR_bHuyU";
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const url = `weather?lat=${latitude}&lon=${longitude +
+          this.state.appid}`;
+
         axios
-          .get(
-            "https://maps.googleapis.com/maps/api/geocode/json?latlng=51.919438,19.145136&key=AIzaSyBxy4VqKf5amWvzDwGRAneCo6OtR_bHuyU"
-          )
-          .then(data => {
-            console.log(data);
+          .get(url)
+          .then(async response => {
+            const city = response.data.name;
+            await this.setState({ city: city });
+            this.getForecastHandler(this.state.city);
+          })
+          .catch(error => {
+            console.log(error);
           });
       });
     }
   };
 
   getForecastHandler = city => {
-    const url = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city +
-      this.state.appid}&units=${this.state.unit}&cnt=${this.state.daysNum + 1}`;
+    const url = `forecast/daily?q=${city + this.state.appid}&units=${
+      this.state.unit
+    }&cnt=${this.state.daysNum + 1}`;
     this.setState({ loading: true });
 
     axios
       .get(url)
       .then(response => {
-        const [currentWeather, ...forecastData] = response.data.list;
+        const forecastData = response.data.list;
         const country = response.data.city.country;
-        const description = currentWeather.weather[0].description;
-        const currentTemp = currentWeather.temp.eve;
 
         setTimeout(() => {
           this.setState({
             city: city,
-            currentWeather: currentWeather,
-            currentTemp: currentTemp,
             forecastData: forecastData,
             country: country,
-            description: description,
             loading: false
           });
         }, 1000);
@@ -123,12 +118,7 @@ class Forecast extends Component {
     } else if (modalOption === "city on map") {
       modalContent = (
         <div>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Perspiciatis iusto repellat tenetur reiciendis, animi unde ratione
-            sequi delectus rerum est voluptates, neque hic consequuntur?
-          </p>
-          <h1>🌏</h1>
+          <p>...</p>
         </div>
       );
     }
@@ -144,8 +134,7 @@ class Forecast extends Component {
           city={this.state.city}
         />
         <CurrentWeather
-          description={this.state.description}
-          temp={this.state.currentTemp}
+          data={this.state.forecastData}
           loading={this.state.loading}
         />
         <div className="DataWrapper">

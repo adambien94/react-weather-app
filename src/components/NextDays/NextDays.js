@@ -16,17 +16,20 @@ const NextDays = ({ data, days }) => {
     }
   };
 
-  let test =
-    data &&
-    data.map((dayData, index) => {
+  let nextDays = null;
+
+  if (data) {
+    const [i, ...forecastData] = data;
+    nextDays = forecastData.map((dayData, index) => {
       return (
         <li style={styles.day} key={`day${index}`}>
           <NextDay data={dayData} day={days[index]} />
         </li>
       );
     });
+  }
 
-  return <ul style={styles.nextDays}>{test}</ul>;
+  return <ul style={styles.nextDays}>{nextDays}</ul>;
 };
 
 export default NextDays;

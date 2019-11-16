@@ -42,6 +42,16 @@ const Chart = ({ data, labels }) => {
                 {
                   ticks: {
                     beginAtZero: true
+                  },
+                  gridLines: {
+                    color: "rgba(0,0,0,0.03)"
+                  }
+                }
+              ],
+              xAxes: [
+                {
+                  gridLines: {
+                    color: "rgba(0,0,0,0)"
                   }
                 }
               ]
