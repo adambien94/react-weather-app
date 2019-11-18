@@ -7,6 +7,6 @@
 }
 
 .blur {
-  transition: all .2s ease-out;
+  transition: all .175s ease-out;
   filter: brightness(79%);
 }

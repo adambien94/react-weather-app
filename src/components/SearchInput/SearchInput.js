@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./CityInput.module.css";
+import classes from "./SearchInput.module.css";
 
 const CityInput = props => {
   const styles = {

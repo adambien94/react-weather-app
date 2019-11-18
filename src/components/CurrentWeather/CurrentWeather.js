@@ -1,11 +1,9 @@
 import React from "react";
-import "./CurrentData.css";
+import classes from "./CurrentWeather.module.css";
 import WeatherIcon from "./WeatherIcon/WeatherIcon";
 import Loader from "../Loader/Loader";
 
 const CurrentData = props => {
-  let mainTemp;
-
   let currentTemp;
   let description = "";
 
@@ -15,18 +13,21 @@ const CurrentData = props => {
     description = currentWeather.weather[0].description;
   }
 
+  let mainTemp;
   if (!props.data || props.loading) {
-    mainTemp = <Loader />;
+    mainTemp = <Loader color="#ffffff" />;
   } else {
-    mainTemp = <span className="MainTemp">{currentTemp.toFixed(0)}</span>;
+    mainTemp = (
+      <span className={classes.MainTemp}>{currentTemp.toFixed(0)}</span>
+    );
   }
 
   return (
-    <div className="CurrentData">
+    <div className={classes.CurrentData}>
       <WeatherIcon />
-      <div className="MainInfo">
+      <div className={classes.MainInfo}>
         {mainTemp}
-        <span className="Description">{description}</span>
+        <span className={classes.Description}>{description}</span>
       </div>
     </div>
   );

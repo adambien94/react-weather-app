@@ -1,29 +1,38 @@
 import React, { Component } from "react";
-import CurrentWeather from "../../components/CurrentData/CurrentData";
-import Aux from "../../hoc/Auxiliary";
+import CurrentWeather from "../../components/CurrentWeather/CurrentWeather";
 import "./Forecast.css";
 import NextDays from "../../components/NextDays/NextDays";
-import CityInput from "../../components/CityInput/CityInput";
+import SearchInput from "../../components/SearchInput/SearchInput";
 import axios from "../../axios";
 import Dropdown from "../../components/UI/Dropdown/Dropdown";
 import Modal from "../../components/UI/Modal/Modal";
 import Backdrop from "../../components/UI/Backdrop/Backdrop";
 import Chart from "../../components/Chart/Chart";
+import widthErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+
+const DAYS = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
 
 class Forecast extends Component {
   state = {
     appid: "&appid=81631cc1843c3ced0966f73c8b9fcdf7",
     unit: "metric",
     city: "",
-    country: "PL",
+    country: "",
     daysNum: 5,
     forecastData: null,
-    posts: null,
     units: ["metric", "imperial"],
-    daysNums: [3, 4, 5, 6, 7],
+    daysNums: [3, 4, 5],
     showModal: false,
     modalOption: null,
-    weekDays: ["Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat.", "Sun."],
     loading: false
   };
 
@@ -57,7 +66,7 @@ class Forecast extends Component {
   getForecastHandler = city => {
     const url = `forecast/daily?q=${city + this.state.appid}&units=${
       this.state.unit
-    }&cnt=${this.state.daysNum + 1}`;
+    }&cnt=6`;
     this.setState({ loading: true });
 
     axios
@@ -80,9 +89,8 @@ class Forecast extends Component {
       });
   };
 
-  setDaysNumHandler = async option => {
-    await this.setState({ daysNum: option });
-    this.getForecastHandler(this.state.city);
+  setDaysNumHandler = option => {
+    this.setState({ daysNum: option });
   };
 
   setUnitHandler = async option => {
@@ -105,31 +113,39 @@ class Forecast extends Component {
 
     if (modalOption === "forecast chart") {
       const temps = this.state.forecastData
-        ? this.state.forecastData.map(data => data.temp.eve)
+        ? this.state.forecastData
+            .slice(1, this.state.daysNum + 1)
+            .map(data => data.temp.eve)
         : [];
+      const days = DAYS.map(day => {
+        return `${day.slice(0, 3)}.`;
+      });
       modalContent = (
-        <Chart
-          data={temps}
-          labels={this.state.weekDays.slice(
-            this.state.weekDays.length - temps.length
-          )}
-        />
+        <Chart data={temps} labels={days.slice(DAYS.length - temps.length)} />
       );
     } else if (modalOption === "city on map") {
       modalContent = (
         <div>
-          <p>...</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+            architecto aut ea dolores.Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Excepturi architecto aut ea dolores.Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Excepturi architecto
+            aut ea dolores.Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Excepturi architecto aut ea dolores.Lorem ipsum dolor sit amet
+            consectetur adipisicing elit.
+          </p>
         </div>
       );
     }
 
     return (
-      <Aux>
+      <>
         <Backdrop
           show={this.state.showModal}
           clicked={this.modalToggleHandler}
         />
-        <CityInput
+        <SearchInput
           submit={city => this.getForecastHandler(city)}
           city={this.state.city}
         />
@@ -154,14 +170,21 @@ class Forecast extends Component {
           </nav>
           <div className="flexContainer">
             <div className="DataInfo">
-              <div>sunday, sep 25</div>
               <div>
-                {this.state.city}, {this.state.country}
+                {this.state.forecastData
+                  ? `${DAYS[new Date().getDay()]}, ${new Date().getDate()}`
+                  : null}
+              </div>
+              <div>
+                {this.state.forecastData
+                  ? `${this.state.city},  ${this.state.country}`
+                  : null}
               </div>
             </div>
             <NextDays
               data={this.state.forecastData}
-              days={this.state.weekDays}
+              days={DAYS}
+              daysNum={this.state.daysNum}
             />
             <div className="OptionWrapper">
               <Dropdown
@@ -182,9 +205,9 @@ class Forecast extends Component {
         <Modal show={this.state.showModal} title={modalOption}>
           {modalContent}
         </Modal>
-      </Aux>
+      </>
     );
   }
 }
 
-export default Forecast;
+export default withErrorHandler(Forecast);

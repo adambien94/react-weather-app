@@ -4,7 +4,6 @@
 
 .loaderDot {
   font-size: 63px;
-  color: #fff;
   position: relative;
   font-weight: 600;
   display: inline-block;
@@ -17,7 +16,7 @@
   }
 
   29% {
-    transform: translateY(-17px);
+    transform: translateY(-11px);
   }
 
   80% {

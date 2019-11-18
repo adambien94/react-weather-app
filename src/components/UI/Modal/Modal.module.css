@@ -10,8 +10,9 @@
   top: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 11px rgba(0, 0, 0, 0.17);
-  padding: 20px;
+  padding: 20px 20px 25px 20px;
   box-sizing: border-box;
+  transition: all 0.3s ease-out;
 }
 
 .modalTitle {
@@ -22,8 +23,7 @@
   line-height: 17px;
   padding-bottom: 11px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-  margin-bottom: 21px;
-  text-transform: capitalize;
+  margin-bottom: 17px;
 }
 
 .modalContent {
