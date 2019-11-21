@@ -12,7 +12,7 @@
   box-shadow: 0 0 11px rgba(0, 0, 0, 0.17);
   padding: 20px 20px 25px 20px;
   box-sizing: border-box;
-  transition: all 0.3s ease-out;
+  transition: all 0.21s ease-out;
 }
 
 .modalTitle {

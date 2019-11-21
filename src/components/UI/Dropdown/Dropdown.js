@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import styles from "./Dropdown.module.css";
+import classes from "./Dropdown.module.css";
+import TestMap from "../../Map/Map";
 
 const Dropdown = props => {
   const [show, setShow] = React.useState(false);
@@ -9,17 +10,17 @@ const Dropdown = props => {
   };
 
   const itemClick = option => {
-    props.clicked(option);
+    option !== props.value && props.clicked(option);
   };
 
   return (
-    <div className={styles.wrapper}>
-      <ul className={styles.list} style={{ display: show ? "block" : "none" }}>
+    <div className={classes.wrapper}>
+      <ul className={classes.list} style={{ display: show ? "block" : "none" }}>
         {props.options.map((option, index) => {
           let attachedClasses =
             option === props.value
-              ? [styles.item, styles.itemActive]
-              : [styles.item];
+              ? [classes.item, classes.itemActive]
+              : [classes.item];
           return (
             <li
               className={attachedClasses.join(" ")}
@@ -31,8 +32,8 @@ const Dropdown = props => {
           );
         })}
       </ul>
-      <div className={styles.SelectBtn} onClick={toggleList}>
-        <span className={styles.value}>
+      <div className={classes.SelectBtn} onClick={toggleList}>
+        <span className={classes.value}>
           {props.value + " " + props.valueDescription}
         </span>
       </div>

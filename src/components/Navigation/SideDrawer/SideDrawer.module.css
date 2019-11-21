@@ -13,10 +13,10 @@
   padding: 20px;
   font-size: 43px;
   box-shadow: 4px 0 4px rgba(0, 0, 0, 0.08);
-  transition: transform .175s;
+  transition: transform .27s;
 }
 
 .SideDrawerOpened {
   transform: translateX(0);
-  transition: transform .13s ease-out;
+  transition: transform .21s ease-out;
 }

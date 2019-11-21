@@ -8,6 +8,7 @@ import Dropdown from "../../components/UI/Dropdown/Dropdown";
 import Modal from "../../components/UI/Modal/Modal";
 import Backdrop from "../../components/UI/Backdrop/Backdrop";
 import Chart from "../../components/Chart/Chart";
+import TestMap from "../../components/Map/Map";
 import widthErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 
@@ -27,13 +28,14 @@ class Forecast extends Component {
     unit: "metric",
     city: "",
     country: "",
-    daysNum: 5,
+    daysNum: 3,
     forecastData: null,
     units: ["metric", "imperial"],
     daysNums: [3, 4, 5],
     showModal: false,
     modalOption: null,
-    loading: false
+    loading: false,
+    modalOptions: ["city on map", "forecast chart", "dracula"]
   };
 
   componentDidMount = () => {
@@ -58,6 +60,7 @@ class Forecast extends Component {
           })
           .catch(error => {
             console.log(error);
+            alert(error);
           });
       });
     }
@@ -86,6 +89,7 @@ class Forecast extends Component {
       })
       .catch(error => {
         console.log(error);
+        alert(error);
       });
   };
 
@@ -124,19 +128,9 @@ class Forecast extends Component {
         <Chart data={temps} labels={days.slice(DAYS.length - temps.length)} />
       );
     } else if (modalOption === "city on map") {
-      modalContent = (
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            architecto aut ea dolores.Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Excepturi architecto aut ea dolores.Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Excepturi architecto
-            aut ea dolores.Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Excepturi architecto aut ea dolores.Lorem ipsum dolor sit amet
-            consectetur adipisicing elit.
-          </p>
-        </div>
-      );
+      modalContent = <TestMap />;
+    } else if (modalOption === "dracula") {
+      modalContent = <h1>🧛‍♂️</h1>;
     }
 
     return (
@@ -155,18 +149,17 @@ class Forecast extends Component {
         />
         <div className="DataWrapper">
           <nav className="forecastNav">
-            <button
-              className="modalBtn"
-              onClick={option => this.openModal("city on map")}
-            >
-              city on map
-            </button>
-            <button
-              className="modalBtn"
-              onClick={option => this.openModal("forecast chart")}
-            >
-              forecast chart
-            </button>
+            {this.state.modalOptions.map((item, index) => {
+              return (
+                <button
+                  className="modalBtn"
+                  onClick={option => this.openModal(item)}
+                  key={`navOption${index}`}
+                >
+                  {item}
+                </button>
+              );
+            })}
           </nav>
           <div className="flexContainer">
             <div className="DataInfo">

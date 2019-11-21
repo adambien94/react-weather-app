@@ -1,8 +1,18 @@
 import React from "react";
-import "./WeatherIcon.css";
 
-const WeatherIcon = () => {
-  return <div className="WeatherIcon" alt="ikona"></div>;
+const WeatherIcon = ({ iconId, type }) => {
+  let brightness;
+  if (type === "light") {
+    brightness = "brightness(200%) grayscale(1)";
+  } else if (type === "dark") {
+    brightness = "brightness(100%) grayscale(1)";
+  }
+  const styles = {
+    width: "100%",
+    filter: brightness
+  };
+  const source = `./images/${iconId}.png`;
+  return <img src={source} alt="" style={styles} />;
 };
 
 export default WeatherIcon;

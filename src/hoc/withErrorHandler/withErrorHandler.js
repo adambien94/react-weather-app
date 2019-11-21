@@ -9,7 +9,7 @@ const withErrorHandler = (WrappedComponent, axios) => {
       return (
         <>
           <Modal show={false}>Something didn't work</Modal>
-          <WrappedComponent {...this.props} />;
+          <WrappedComponent {...this.props} />
         </>
       );
     }

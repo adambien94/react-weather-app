@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherIcon from "../../CurrentWeather/WeatherIcon/WeatherIcon";
 
 const NextDay = props => {
   const styles = {
@@ -16,8 +17,8 @@ const NextDay = props => {
       fontWeight: "600"
     },
     icon: {
-      width: "50px",
-      height: "50px"
+      width: "29px",
+      height: "29px"
     },
     temp: {
       fontWeight: "600"
@@ -27,12 +28,15 @@ const NextDay = props => {
     }
   };
 
+  let iconId = props.data.weather[0].icon;
+
   return (
     <div style={styles.nextDay}>
       <div style={styles.day}>{props.day}</div>
-      {/* <img src="../../../assets/weather-icon.png" style={styles.icon} /> */}
 
-      <h1 style={{ color: "rgba(0,0,0,0.5)" }}>🌤</h1>
+      <div style={styles.icon}>
+        <WeatherIcon iconId={iconId} type="dark" />
+      </div>
       <div style={(styles.temp, styles.dayTemp)}>
         {props.data.temp.eve.toFixed(0)}°
       </div>
