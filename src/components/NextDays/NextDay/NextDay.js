@@ -17,8 +17,8 @@ const NextDay = props => {
       fontWeight: "600"
     },
     icon: {
-      width: "29px",
-      height: "29px"
+      width: "31px",
+      height: "31px"
     },
     temp: {
       fontWeight: "600"
