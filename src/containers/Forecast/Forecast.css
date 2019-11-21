@@ -9,6 +9,33 @@
   left: 0;
 }
 
+.DataWrapper:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 23%;
+  position: absolute;
+  top: 0;
+  transform: translateY(-98%);
+  background: url('../../assets/wave3.png');
+  background-size: 100% 100%;
+  filter: brightness(101.7%) grayscale(1);
+}
+
+.DataWrapper:before {
+  content: "";
+  display: block;
+  width: 104%;
+  height: 23%;
+  position: absolute;
+  top: 0;
+  transform: translate(-1%, -113%);
+  background: url('../../assets/wave3.png');
+  background-size: 100% 100%;
+  filter: brightness(100%) drop-shadow(-30px -10px 11px #4444dd);
+  opacity: 0.31;
+}
+
 .DataInfo {
   display: flex;
   justify-content: space-around;
@@ -45,15 +72,14 @@
   padding: 3px 11px;
   margin: 3px;
   font-size: 11px;
-  /* border: 1px solid rgba(0, 0, 0, 0.07); */
+  border: 1px solid rgba(0, 0, 0, 0.09);
   background: #FCFCFC;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.43);
   text-transform: capitalize;
   cursor: pointer;
   font-weight: 600;
   line-height: 10px;
   border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.17);
 }
 
 .flexContainer {

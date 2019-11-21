@@ -44,11 +44,11 @@
 }
 
 .itemActive {
-  color: #4ab6f9;
+  color: #5790F9;
 }
 
 .itemActive.item:before {
-  border: 1px solid #4ab6f9;
+  border: 1px solid #5790F9;
 }
 
 .itemActive:after {
@@ -58,7 +58,7 @@
   width: 13px;
   height: 13px;
   box-sizing: border-box;
-  background: #4ab6f9;
+  background: #5790F9;
   border: 3px solid #edf3f7;
   border-radius: 50%;
   left: 7px;
@@ -74,7 +74,7 @@
   padding: 5px;
   background: #F7F7F7;
   border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.17);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.13);
   width: 117px;
   margin: 0 auto 17px auto;
   position: relative;
