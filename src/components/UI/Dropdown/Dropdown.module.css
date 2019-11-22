@@ -14,7 +14,7 @@
   width: 117px;
   box-sizing: border-box;
   padding: 7px 5px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.11);
   border-radius: 2px;
   z-index: 2;
 }
@@ -26,6 +26,7 @@
   color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
   position: relative;
+  font-weight: 600;
 }
 
 .item:before {
@@ -34,8 +35,7 @@
   position: absolute;
   width: 13px;
   height: 13px;
-  box-sizing: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.13);
   border-radius: 50%;
   left: 7px;
   top: 50%;
@@ -44,26 +44,11 @@
 }
 
 .itemActive {
-  color: #5790F9;
+  color: #7CAAFF;
 }
 
 .itemActive.item:before {
-  border: 1px solid #5790F9;
-}
-
-.itemActive:after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 13px;
-  height: 13px;
-  box-sizing: border-box;
-  background: #5790F9;
-  border: 3px solid #edf3f7;
-  border-radius: 50%;
-  left: 7px;
-  top: 50%;
-  transform: translateY(-50%);
+  background: #7CAAFF;
 }
 
 .SelectBtn {
@@ -73,8 +58,8 @@
   cursor: pointer;
   padding: 5px;
   background: #F7F7F7;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.13);
+  border-radius: 3px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.11);
   width: 117px;
   margin: 0 auto 17px auto;
   position: relative;
@@ -84,6 +69,7 @@
   content: "❯";
   position: absolute;
   color: rgba(0, 0, 0, 0.17);
+  font-weight: 900;
   font-size: 13px;
   left: 50%;
   top: 50%;
@@ -94,6 +80,6 @@
   display: block;
   padding: 1px;
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.8);
-  font-weight: 500;
+  color: rgba(0, 0, 0, 0.47);
+  font-weight: 700;
 }

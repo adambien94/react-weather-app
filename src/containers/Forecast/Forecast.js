@@ -11,6 +11,7 @@ import Chart from "../../components/Chart/Chart";
 import TestMap from "../../components/Map/Map";
 import widthErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+import { thisExpression } from "@babel/types";
 
 const DAYS = [
   "Sunday",
@@ -59,8 +60,11 @@ class Forecast extends Component {
             this.getForecastHandler(this.state.city);
           })
           .catch(error => {
-            console.log(error);
-            alert(error);
+            let errorCod = error.response.data.cod;
+            setTimeout(() => {
+              this.openModal(errorCod);
+              this.setState({ loading: false });
+            }, 1000);
           });
       });
     }
@@ -88,8 +92,11 @@ class Forecast extends Component {
         }, 1000);
       })
       .catch(error => {
-        console.log(error);
-        alert(error);
+        let errorCod = error.response.data.cod;
+        setTimeout(() => {
+          this.openModal(errorCod);
+          this.setState({ loading: false });
+        }, 1000);
       });
   };
 
@@ -106,9 +113,8 @@ class Forecast extends Component {
     this.setState({ showModal: !this.state.showModal });
   };
 
-  openModal = async option => {
-    await this.setState({ modalOption: option });
-    this.modalToggleHandler();
+  openModal = option => {
+    this.setState({ modalOption: option }, this.modalToggleHandler());
   };
 
   render() {
@@ -131,6 +137,10 @@ class Forecast extends Component {
       modalContent = <TestMap />;
     } else if (modalOption === "dracula") {
       modalContent = <h1>🧛‍♂️</h1>;
+    } else if (modalOption === "404") {
+      modalContent = <p>Sorry, city not found... 😑</p>;
+    } else if (modalOption === "400") {
+      modalContent = <p>Bad request ! 💩</p>;
     }
 
     return (

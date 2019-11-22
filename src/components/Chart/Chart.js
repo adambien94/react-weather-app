@@ -10,13 +10,13 @@ const Chart = ({ data, labels }) => {
         label: "label",
         data: data,
         backgroundColor: [
-          "#7AA7F9",
-          "#7AA7F9",
-          "#7AA7F9",
-          "#7AA7F9",
-          "#7AA7F9",
-          "#7AA7F9",
-          "#7AA7F9"
+          "#6BA9F9",
+          "#6BA9F9",
+          "#6BA9F9",
+          "#6BA9F9",
+          "#6BA9F9",
+          "#6BA9F9",
+          "#6BA9F9"
         ],
         barThickness: 7
       }
