@@ -1,13 +1,10 @@
 import { tsPropertySignature } from "@babel/types";
 
 import React from "react";
-import styles from "./SideDrawer.module.css";
+import classes from "./SideDrawer.module.css";
 
 const SideDrawer = props => {
-  let attachedClasses = props.opened
-    ? [styles.SideDrawer, styles.SideDrawerOpened]
-    : [styles.SideDrawer];
-  return <div className={attachedClasses.join(" ")}>🤙</div>;
+  return <div className={classes.SideDrawer}>🤙</div>;
 };
 
 export default SideDrawer;

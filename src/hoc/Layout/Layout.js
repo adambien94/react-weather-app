@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
-import styles from "./Layout.module.css";
+import classes from "./Layout.module.css";
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 import Backdrop from "../../components/UI/Backdrop/Backdrop";
+import { Transition, animated } from "react-spring/renderprops";
 
 class Layout extends Component {
   state = {
@@ -18,19 +19,19 @@ class Layout extends Component {
     this.state.sideDrawerOpened && this.sideDrawerToggleHandler();
   };
 
-  wrapperStyles = [styles.wrapper];
+  wrapperclasses = [classes.wrapper];
 
   componentDidMount() {
-    this.wrapperStyles = this.state.sideDrawerOpened
-      ? [styles.wrapper]
-      : [styles.wrapper, styles.blur];
+    this.wrapperclasses = this.state.sideDrawerOpened
+      ? [classes.wrapper]
+      : [classes.wrapper, classes.blur];
   }
 
   componentDidUpdate(prevProps) {
     if (this.state.sideDrawerOpened !== prevProps.sideDrawerOpened) {
-      this.wrapperStyles = this.state.sideDrawerOpened
-        ? [styles.wrapper]
-        : [styles.wrapper, styles.blur];
+      this.wrapperclasses = this.state.sideDrawerOpened
+        ? [classes.wrapper]
+        : [classes.wrapper, classes.blur];
     }
   }
 
@@ -40,11 +41,32 @@ class Layout extends Component {
   render() {
     return (
       <>
-        <SideDrawer opened={this.state.sideDrawerOpened} />
-        <div className={this.wrapperStyles.join(" ")}>
+        <Transition
+          native
+          items={this.state.sideDrawerOpened}
+          from={{
+            transform: "translateX(-100%)"
+          }}
+          enter={{
+            transform: "translateX(0)"
+          }}
+          leave={{
+            transform: "translateX(-100%)"
+          }}
+        >
+          {show =>
+            show &&
+            (animationProps => (
+              <animated.div style={animationProps}>
+                <SideDrawer opened={this.state.sideDrawerOpened} />
+              </animated.div>
+            ))
+          }
+        </Transition>
+        <div className={this.wrapperclasses.join(" ")}>
           <Backdrop clicked={this.onClick} show={this.state.sideDrawerOpened} />
           <Toolbar menuToggle={this.sideDrawerToggleHandler} />
-          <main className={styles.Content}>{this.props.children}</main>
+          <main className={classes.Content}>{this.props.children}</main>
         </div>
       </>
     );

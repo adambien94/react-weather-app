@@ -1,7 +1,7 @@
 .CurrentData {
   width: 100%;
-  margin: 30px auto 30px auto;
-  padding: 20px 40px;
+  margin: 4.2vh auto 30px auto;
+  padding: 0px 40px;
   box-sizing: border-box;
 }
 
@@ -14,7 +14,7 @@
 
 .MainTemp {
   display: inline-block;
-  font-size: 63px;
+  font-size: 65px;
   color: #fff;
   font-weight: 600;
   position: relative;
@@ -36,7 +36,7 @@
   bottom: 0;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 300;
-  font-size: 19px;
+  font-size: 21px;
   position: relative;
 }
 
@@ -54,8 +54,8 @@
 }
 
 .IconWrapper {
-  width: 75px;
-  height: 75px;
+  width: 77px;
+  height: 77px;
   position: relative;
   margin: 3px auto 0 auto;
   transform: translateX(-89px);

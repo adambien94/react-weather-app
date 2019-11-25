@@ -1,5 +1,3 @@
-.Content {}
-
 .wrapper {
   height: 100%;
   filter: brightness(100%);
@@ -7,6 +5,6 @@
 }
 
 .blur {
-  transition: all .21s ease-out;
+  transition: all 0.21s ease-out;
   filter: brightness(79%);
 }

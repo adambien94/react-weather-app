@@ -12,6 +12,7 @@ import TestMap from "../../components/Map/Map";
 import widthErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import { thisExpression } from "@babel/types";
+import { Transition, animated } from "react-spring/renderprops";
 
 const DAYS = [
   "Sunday",
@@ -140,7 +141,7 @@ class Forecast extends Component {
     } else if (modalOption === "404") {
       modalContent = <p>Sorry, city not found... 😑</p>;
     } else if (modalOption === "400") {
-      modalContent = <p>Bad request ! 💩</p>;
+      modalContent = <p>Bad request error. 💩</p>;
     }
 
     return (
@@ -205,12 +206,36 @@ class Forecast extends Component {
             </div>
           </div>
         </div>
-        <Modal show={this.state.showModal} title={modalOption}>
-          {modalContent}
-        </Modal>
+        <Transition
+          native
+          items={this.state.showModal}
+          from={{
+            transform: "translateY(-100vh)"
+          }}
+          enter={{
+            transform: "translateY(0)"
+          }}
+          leave={{
+            transform: "translateY(-100vh)"
+          }}
+          config={{
+            mass: 0.83,
+            tension: 333,
+            friction: 30
+          }}
+        >
+          {show =>
+            show &&
+            (animationProps => (
+              <animated.div style={animationProps}>
+                <Modal title={modalOption}>{modalContent}</Modal>
+              </animated.div>
+            ))
+          }
+        </Transition>
       </>
     );
   }
 }
 
-export default withErrorHandler(Forecast);
+export default Forecast;

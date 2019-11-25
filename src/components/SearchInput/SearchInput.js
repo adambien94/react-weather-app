@@ -7,8 +7,8 @@ const CityInput = props => {
       border: "none",
       outline: "none",
       display: "block",
-      fontSize: "19px",
-      padding: "4px 0",
+      fontSize: "21px",
+      padding: "5px 0",
       width: "250px",
       margin: "0 auto",
       borderRadius: "7px",
@@ -61,13 +61,11 @@ const CityInput = props => {
         }}
         onChange={event => updateCity(event)}
       />
-      <button
+      <div
         style={styles.submit}
         onClick={onClick}
         className={classes.SearchBtn}
-      >
-        ⚲
-      </button>
+      ></div>
     </div>
   );
 };

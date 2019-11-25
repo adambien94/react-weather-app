@@ -13,18 +13,18 @@ const NextDay = props => {
       minWidth: "57px"
     },
     day: {
-      fontSize: "12px",
+      fontSize: "15px",
       fontWeight: "600"
     },
     icon: {
-      width: "31px",
-      height: "31px"
+      width: "33px",
+      height: "33px"
     },
     temp: {
       fontWeight: "600"
     },
     dayTemp: {
-      fontSize: "21px"
+      fontSize: "23px"
     }
   };
 

@@ -16,10 +16,9 @@ const CurrentWeather = props => {
   }
 
   let mainTemp;
-  let weatherIcon;
+  let weatherIcon = null;
   if (!props.data || props.loading) {
     mainTemp = <Loader color="#ffffff" />;
-    weatherIcon = null;
   } else {
     mainTemp = (
       <span className={classes.MainTemp}>{currentTemp.toFixed(0)}</span>

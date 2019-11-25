@@ -16,7 +16,7 @@ const NextDays = ({ data, days, daysNum }) => {
     },
     loader: {
       margin: "0 auto",
-      paddingBottom: "37px"
+      paddingBottom: "21px"
     }
   };
 

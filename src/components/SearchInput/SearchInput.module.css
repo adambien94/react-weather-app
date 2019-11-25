@@ -6,13 +6,17 @@
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 30px;
   width: 30px;
   line-height: 30px;
-  border-radius: 50%;
   position: relative;
   left: 50%;
-  transform: translate(83px, 3px) rotate(-45deg);
+  transform: translate(81px, 3px);
   outline: none;
   cursor: pointer;
+  width: 28px;
+  height: 28px;
+  background: url(../../assets/search.svg);
+  background-size: cover;
+  opacity: 0.69;
+  filter: invert(1);
 }

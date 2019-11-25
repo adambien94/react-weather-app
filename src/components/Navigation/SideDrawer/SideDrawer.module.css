@@ -5,7 +5,6 @@
   background: #fff;
   position: absolute;
   z-index: 10;
-  transform: translateX(calc(-100% - 25px));
   position: absolute;
   top: 0;
   left: 0;
@@ -13,10 +12,4 @@
   padding: 20px;
   font-size: 43px;
   box-shadow: 4px 0 4px rgba(0, 0, 0, 0.08);
-  transition: transform .27s;
-}
-
-.SideDrawerOpened {
-  transform: translateX(0);
-  transition: transform .21s ease-out;
 }
