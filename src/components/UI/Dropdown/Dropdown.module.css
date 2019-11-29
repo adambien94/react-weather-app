@@ -7,7 +7,7 @@
   position: absolute;
   top: -9px;
   left: 50%;
-  background: #F4F5F7;
+  background: #f4f5f7;
   transform: translate(-50%, -100%);
   list-style: none;
   max-width: 200px;
@@ -23,7 +23,7 @@
   text-align: right;
   font-size: 17px;
   padding: 7px 17px;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.53);
   cursor: pointer;
   position: relative;
   font-weight: 600;
@@ -44,11 +44,11 @@
 }
 
 .itemActive {
-  color: #7CAAFF;
+  color: #5e96ff;
 }
 
 .itemActive.item:before {
-  background: #7CAAFF;
+  background: #5e96ff;
 }
 
 .SelectBtn {
@@ -57,7 +57,7 @@
   box-sizing: border-box;
   cursor: pointer;
   padding: 5px;
-  background: #F4F5F7;
+  background: #f4f5f7;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 79, 0.13);
   width: 133px;
@@ -80,6 +80,6 @@
   display: block;
   padding: 1px;
   font-size: 15px;
-  color: rgba(0, 0, 0, 0.53);
+  color: rgba(0, 0, 0, 0.79);
   font-weight: 700;
 }

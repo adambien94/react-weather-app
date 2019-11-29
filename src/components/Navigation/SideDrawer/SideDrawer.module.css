@@ -5,6 +5,7 @@
   background: #fff;
   position: absolute;
   z-index: 10;
+  transform: translateX(calc(-100% - 25px));
   position: absolute;
   top: 0;
   left: 0;
@@ -12,4 +13,30 @@
   padding: 20px;
   font-size: 43px;
   box-shadow: 4px 0 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s;
+}
+
+.SideDrawerOpened {
+  transform: translateX(0);
+  transition: transform 0.25s ease-out;
+}
+
+.SideDrawer ul {
+  list-style: none;
+  margin-top: 29px;
+}
+
+.SideDrawer li {
+  font-size: 21px;
+  cursor: pointer;
+  padding: 7px 0;
+  font-weight: 600;
+}
+
+.SideDrawer li a {
+  color: rgba(0, 0, 0, 0.83);
+  text-decoration: underline;
+  color: black;
+  font-weight: 400;
+  color: #2658ff;
 }

@@ -1,13 +1,15 @@
 .loader {
   text-align: center;
+  transform: translateY(-9px);
 }
 
 .loaderDot {
-  font-size: 63px;
+  font-size: 79px;
   position: relative;
   font-weight: 600;
   display: inline-block;
   line-height: 70px;
+  margin: 0 1px;
 }
 
 @keyframes pulse {

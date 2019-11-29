@@ -1,16 +1,21 @@
 import React, { Component } from "react";
-import Forecast from "./containers/Forecast/Forecast";
 import Layout from "./hoc/Layout/Layout";
+import Forecast from "./containers/Forecast/Forecast";
+import TestRoute from "./containers/TestRoute/TestRoute";
 import "./App.css";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Layout>
-          <Forecast />
-        </Layout>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Layout>
+            <Route path="/" exact component={Forecast} />
+            <Route path="/test-route" exact component={TestRoute} />
+          </Layout>
+        </div>
+      </BrowserRouter>
     );
   }
 }

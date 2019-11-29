@@ -1,4 +1,4 @@
-.DataWrapper {
+.dataSection {
   background: #fff;
   padding: 40px 0 0 0;
   position: absolute;
@@ -9,7 +9,7 @@
   left: 0;
 }
 
-.DataWrapper:after {
+.dataSection:after {
   content: "";
   display: block;
   width: 100%;
@@ -17,12 +17,12 @@
   position: absolute;
   top: 0;
   transform: translateY(-98%);
-  background: url('../../assets/wave3.png');
+  background: url("../../assets/wave3.png");
   background-size: 100% 100%;
   filter: brightness(1000%) grayscale(1);
 }
 
-.DataWrapper:before {
+.dataSection:before {
   content: "";
   display: block;
   width: 104%;
@@ -30,16 +30,16 @@
   position: absolute;
   top: 0;
   transform: translate(-1%, -113%);
-  background: url('../../assets/wave3.png');
+  background: url("../../assets/wave3.png");
   background-size: 100% 100%;
-  filter: brightness(100%) drop-shadow(-30px -11px 11px #4444dd);
+  filter: brightness(100%) drop-shadow(-30px -13px 11px #1244a8);
   opacity: 0.21;
 }
 
-.DataInfo {
+.dataInfo {
   display: flex;
   justify-content: space-around;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.83);
   font-weight: 500;
   font-size: 17px;
   margin-top: 7px;
@@ -47,7 +47,7 @@
   padding-top: 7px;
 }
 
-.OptionWrapper {
+.optionWrapper {
   display: flex;
   justify-content: space-between;
   max-width: 500px;
@@ -56,8 +56,7 @@
 }
 
 .forecastNav {
-  width: 100%;
-  height: 27px;
+  height: 31px;
   position: absolute;
   top: 3px;
   right: 0;
@@ -67,19 +66,18 @@
 
 .modalBtn {
   display: block;
-  border: none;
   outline: none;
-  border-radius: 3px;
-  padding: 3px 11px;
+  padding: 3px 12px;
   margin: 3px;
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.49);
   text-transform: capitalize;
   cursor: pointer;
   font-weight: 700;
   line-height: 10px;
-  background: transparent;
-  /* display: none; */
+  background: #f4f5f7;
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.83);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .flexContainer {

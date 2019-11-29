@@ -14,7 +14,7 @@ const Dropdown = props => {
     option !== props.value && props.clicked(option);
     setTimeout(() => {
       toggleList();
-    }, 229);
+    }, 79);
   };
 
   return (
@@ -36,7 +36,7 @@ const Dropdown = props => {
         }}
         config={{
           mass: 1,
-          tension: 430,
+          tension: 470,
           friction: 26
         }}
       >

@@ -11,3 +11,9 @@ const Modal = ({ title, children }) => {
 };
 
 export default Modal;
+
+//  style={{
+//     transform: props.show
+//       ? "translate(-50%, -50%)"
+//       : "translate(-50%, calc(-60vh - 100%))"
+//   }}

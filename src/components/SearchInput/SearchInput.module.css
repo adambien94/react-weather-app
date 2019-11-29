@@ -3,20 +3,19 @@
 }
 
 .SearchBtn {
-  background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.7);
-  width: 30px;
-  line-height: 30px;
   position: relative;
   left: 50%;
-  transform: translate(81px, 3px);
+  transform: translateX(81px);
   outline: none;
   cursor: pointer;
-  width: 28px;
-  height: 28px;
+  width: 44px;
+  height: 38px;
   background: url(../../assets/search.svg);
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: 0% center;
   opacity: 0.69;
   filter: invert(1);
+  border-radius: 7px;
 }

@@ -8,7 +8,8 @@ const NextDays = ({ data, days, daysNum }) => {
       display: "flex",
       justifyContent: "space-between",
       listStyle: "none",
-      width: "100%"
+      width: "100%",
+      height: "calc(100% - 127px)"
     },
     day: {
       borderRight: "1px solid rgba(0,0,0,0.04)",
@@ -16,7 +17,7 @@ const NextDays = ({ data, days, daysNum }) => {
     },
     loader: {
       margin: "0 auto",
-      paddingBottom: "21px"
+      paddingBottom: "55px"
     }
   };
 

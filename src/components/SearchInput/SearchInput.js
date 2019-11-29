@@ -13,7 +13,7 @@ const CityInput = props => {
       margin: "0 auto",
       borderRadius: "7px",
       textAlign: "center",
-      background: "rgba(255, 255, 255, 0.2)",
+      background: "rgba(255, 255, 255, 0.15)",
       color: "#fff",
       fontWeight: "300",
       textTransform: "capitalize",
@@ -43,12 +43,6 @@ const CityInput = props => {
     cityInput.placeholder = city;
   };
 
-  // cityInput.addEventListener("keydown", e => {
-  //   if (e.keyCode === 13) {
-  //     console.log("hehe");
-  //   }
-  // });
-
   return (
     <div style={styles.wrapper}>
       <input
@@ -60,6 +54,9 @@ const CityInput = props => {
           cityInput = input;
         }}
         onChange={event => updateCity(event)}
+        onClick={() => {
+          cityInput.placeholder = "";
+        }}
       />
       <div
         style={styles.submit}

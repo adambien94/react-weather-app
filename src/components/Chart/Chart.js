@@ -31,6 +31,9 @@ const Chart = ({ data, labels }) => {
           width={100}
           height={70}
           options={{
+            animation: {
+              duration: 0
+            },
             title: {
               display: false
             },

@@ -103,6 +103,7 @@ class Forecast extends Component {
 
   setDaysNumHandler = option => {
     this.setState({ daysNum: option });
+    console.log("hehehe");
   };
 
   setUnitHandler = async option => {
@@ -111,7 +112,9 @@ class Forecast extends Component {
   };
 
   modalToggleHandler = () => {
-    this.setState({ showModal: !this.state.showModal });
+    this.setState((prevState, props) => {
+      return { showModal: !prevState.showModal };
+    });
   };
 
   openModal = option => {
@@ -158,7 +161,7 @@ class Forecast extends Component {
           data={this.state.forecastData}
           loading={this.state.loading}
         />
-        <div className="DataWrapper">
+        <section className="dataSection">
           <nav className="forecastNav">
             {this.state.modalOptions.map((item, index) => {
               return (
@@ -173,7 +176,7 @@ class Forecast extends Component {
             })}
           </nav>
           <div className="flexContainer">
-            <div className="DataInfo">
+            <div className="dataInfo">
               <div>
                 {this.state.forecastData
                   ? `${DAYS[new Date().getDay()]}, ${new Date().getDate()}`
@@ -190,7 +193,7 @@ class Forecast extends Component {
               days={DAYS}
               daysNum={this.state.daysNum}
             />
-            <div className="OptionWrapper">
+            <div className="optionWrapper">
               <Dropdown
                 value={this.state.daysNum}
                 valueDescription="days"
@@ -205,7 +208,7 @@ class Forecast extends Component {
               />
             </div>
           </div>
-        </div>
+        </section>
         <Transition
           native
           items={this.state.showModal}
