@@ -35,8 +35,12 @@
 
 .SideDrawer li a {
   color: rgba(0, 0, 0, 0.83);
-  text-decoration: underline;
+  text-decoration: none;
   color: black;
   font-weight: 400;
   color: #2658ff;
+}
+
+.SideDrawer li a.active {
+  text-decoration: underline;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./SideDrawer.module.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const SideDrawer = props => {
   const attachedClasses = props.opened
@@ -12,14 +12,23 @@ const SideDrawer = props => {
       🤙
       <ul>
         <li>
-          <Link to="/" onClick={props.clicked}>
+          <NavLink
+            activeClassName={classes.active}
+            exact
+            to="/"
+            onClick={props.clicked}
+          >
             Forecast
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/test-route" onClick={props.clicked}>
+          <NavLink
+            to="/test-route"
+            activeClassName={classes.active}
+            onClick={props.clicked}
+          >
             Test route
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>

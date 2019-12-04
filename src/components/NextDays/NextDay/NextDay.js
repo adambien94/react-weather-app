@@ -38,7 +38,7 @@ const NextDay = props => {
         <WeatherIcon iconId={iconId} type="dark" />
       </div>
       <div style={(styles.temp, styles.dayTemp)}>
-        {props.data.temp.eve.toFixed(0)}°
+        {props.data.temp.eve.toFixed(0) + "°"}
       </div>
     </div>
   );

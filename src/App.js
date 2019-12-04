@@ -3,7 +3,7 @@ import Layout from "./hoc/Layout/Layout";
 import Forecast from "./containers/Forecast/Forecast";
 import TestRoute from "./containers/TestRoute/TestRoute";
 import "./App.css";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route} from "react-router-dom";
 
 class App extends Component {
   render() {

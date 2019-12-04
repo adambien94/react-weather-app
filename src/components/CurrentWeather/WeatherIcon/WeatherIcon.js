@@ -5,7 +5,7 @@ const WeatherIcon = ({ iconId, type }) => {
   if (type === "light") {
     brightness = "brightness(200%) grayscale(1)";
   } else if (type === "dark") {
-    brightness = "brightness(73%) grayscale(1)";
+    brightness = "brightness(57%) grayscale(1)";
   }
   const styles = {
     width: "100%",

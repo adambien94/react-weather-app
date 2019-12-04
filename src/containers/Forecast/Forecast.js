@@ -11,7 +11,6 @@ import Chart from "../../components/Chart/Chart";
 import TestMap from "../../components/Map/Map";
 import widthErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
-import { thisExpression } from "@babel/types";
 import { Transition, animated } from "react-spring/renderprops";
 
 const DAYS = [
@@ -61,7 +60,7 @@ class Forecast extends Component {
             this.getForecastHandler(this.state.city);
           })
           .catch(error => {
-            let errorCod = error.response.data.cod;
+            const errorCod = error.response.data.cod;
             setTimeout(() => {
               this.openModal(errorCod);
               this.setState({ loading: false });
@@ -93,7 +92,7 @@ class Forecast extends Component {
         }, 1000);
       })
       .catch(error => {
-        let errorCod = error.response.data.cod;
+        const errorCod = error.response.data.cod;
         setTimeout(() => {
           this.openModal(errorCod);
           this.setState({ loading: false });
